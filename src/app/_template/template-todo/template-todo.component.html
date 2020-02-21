@@ -1,14 +1,14 @@
 <div class="todo" [class.done]="todo.done">
     <div class="todo-content">
         <div class="handle">
-            <img src="./assets/icons/drag-indicator.svg">
+            <img src="./assets/icons/drag-indicator.svg" />
         </div>
         <div class="todo-content-check">
-            <img *ngIf="!todo.done" (click)="changeCheck($event)" src="./assets/icons/check-box.svg">
-            <img *ngIf="todo.done" (click)="changeCheck($event)" src="./assets/icons/check-box-checked.svg">
+            <img *ngIf="!todo.done" (click)="changeCheck($event)" src="./assets/icons/check-box.svg" />
+            <img *ngIf="todo.done" (click)="changeCheck($event)" src="./assets/icons/check-box-checked.svg" />
         </div>
         <div class="todo-content-text">
-            <input type="text" placeholder="Placeholder"/>
+            <input type="text" placeholder="Placeholder" />
         </div>
     </div>
     <div class="delete">

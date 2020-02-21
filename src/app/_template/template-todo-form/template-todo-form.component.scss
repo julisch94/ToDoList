@@ -3,12 +3,12 @@
 .todo-form {
     width: 100%;
     background-color: $white;
-    margin: 0 0 $cube*2 0;
+    margin: 0 0 $cube * 2 0;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
     align-items: stretch;
-    height: $cube*8;
+    height: $cube * 8;
 
     .todo-content {
         width: 100%;
@@ -19,8 +19,8 @@
 
         input {
             font-family: $font2;
-            font-size: $cube*2;
-            padding: $cube*2;
+            font-size: $cube * 2;
+            padding: $cube * 2;
             color: $second;
             background-color: $prime;
             width: 100%;
@@ -42,10 +42,10 @@
     .create {
         color: $white;
         font-family: $font2;
-        font-size: $cube*2;
-        padding: $cube*2;
+        font-size: $cube * 2;
+        padding: $cube * 2;
         cursor: pointer;
-        border-left: solid $cube*0.1 $second;
+        border-left: solid $cube * 0.1 $second;
         background-color: $prime;
 
         span {

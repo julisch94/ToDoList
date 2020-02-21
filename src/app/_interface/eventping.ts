@@ -1,2 +1,1 @@
-export interface Eventping {
-}
+export interface Eventping {}

@@ -28,22 +28,22 @@
             cursor: grab;
 
             img {
-                width: $cube*2;
-                height: $cube*2;
+                width: $cube * 2;
+                height: $cube * 2;
             }
         }
 
         .todo-content-check {
             display: flex;
-            margin: $cube*2;
+            margin: $cube * 2;
             flex-flow: row;
             justify-content: center;
             align-items: center;
             cursor: pointer;
 
             img {
-                width: $cube*2;
-                height: $cube*2;
+                width: $cube * 2;
+                height: $cube * 2;
             }
         }
 
@@ -52,9 +52,9 @@
 
             input {
                 font-family: $font2;
-                font-size: $cube*2;
-                padding: $cube*2;
-                color: $cube*2;
+                font-size: $cube * 2;
+                padding: $cube * 2;
+                color: $cube * 2;
                 width: 100%;
                 border: none;
                 word-break: break-word;
@@ -75,15 +75,15 @@
         background-color: $red;
         color: $white;
         font-family: $font2;
-        font-size: $cube*2;
-        padding: $cube*2;
+        font-size: $cube * 2;
+        padding: $cube * 2;
         cursor: pointer;
 
         span {
             width: 100%;
             height: 100%;
             display: flex;
-            flex-flow: row; 
+            flex-flow: row;
             align-items: center;
             justify-content: center;
         }

@@ -8,17 +8,15 @@ import { TemplateTodoFormComponent } from './_template/template-todo-form/templa
 import { TemplateHeaderComponent } from './_template/template-header/template-header.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageListComponent,
-    TemplateTodoComponent,
-    TemplateTodoFormComponent,
-    TemplateHeaderComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PageListComponent,
+        TemplateTodoComponent,
+        TemplateTodoFormComponent,
+        TemplateHeaderComponent,
+    ],
+    imports: [BrowserModule],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
