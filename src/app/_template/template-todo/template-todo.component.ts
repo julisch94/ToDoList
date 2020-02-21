@@ -22,6 +22,14 @@ export class TemplateTodoComponent implements OnInit {
 
     public changeCheck(event?: any): void {
         this.todo.done = !this.todo.done;
-        console.log(`Todo at position ${this.todo.position} was changed to ${this.todo.done}`);
+        console.log(`Todo ${this.todo.text} was changed to ${this.todo.done}`);
+    }
+
+    public changeLabel(event?: any): void {
+        console.log(`Todo ${this.todo.text} will be sent to server.`);
+    }
+
+    public deleteTodo(event?: any): void {
+        console.log(`Todo ${this.todo.text} will be deleted.`);
     }
 }
