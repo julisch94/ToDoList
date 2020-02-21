@@ -1,8 +1,8 @@
 <app-template-header></app-template-header>
 
 <div class="list-view">
-    <h4>Open <span>( 2 )</span></h4>
-    <div class="todo-elements">
+    <h4 (click)="showOpen=!showOpen">Open <span>( 2 )</span></h4>
+    <div *ngIf="showOpen" class="todo-elements">
         <app-template-todo></app-template-todo>
         <app-template-todo></app-template-todo>
         <app-template-todo></app-template-todo>
@@ -10,11 +10,12 @@
         <app-template-todo></app-template-todo>
         <app-template-todo></app-template-todo>
     </div>
-
-    <app-template-todo-form></app-template-todo-form>
-
-    <h4>Done <span>( 4 )</span></h4>
-    <div class="todo-elements">
-
+    
+    <app-template-todo-form *ngIf="showOpen"></app-template-todo-form>
+    
+    <h4 (click)="showDone=!showDone">Done <span>( 4 )</span></h4>
+    <div *ngIf="showDone" class="todo-elements">
+        <app-template-todo></app-template-todo>
+        <app-template-todo></app-template-todo>
     </div>
 </div>
