@@ -27,8 +27,13 @@ export class PageListComponent implements OnInit {
         this.todosDone = [];
         this.dataService.getTodos().subscribe(
             (todos: Todo[]) => {
-                this.todos = todos;
-                console.log(todos);
+                todos.forEach((todo: Todo) => {
+                    if (todo.done) {
+                        this.todosDone.push(todo);
+                    } else {
+                        this.todos.push(todo);
+                    }
+                });
             },
             error => {
                 console.error('Failed to get data from server');
@@ -39,22 +44,24 @@ export class PageListComponent implements OnInit {
 
     private create(todo: Todo): void {
         todo.position = this.todos.length;
-        this.todos.push(todo);
-        console.log(`Todo ${todo.text} has been created.`);
+        this.dataService.postTodo(todo).subscribe(
+            (todo: Todo) => {
+                console.log(`Todo ${todo.text} has been created.`);
+                this.todos.push(todo);
+            },
+            error => {
+                console.error('Failed to create data on server');
+                console.error(error);
+            }
+        );
     }
 
     private update(event: EventPing): void {
         const todo = event.object;
         if ('check' == event.label) {
             this.checkTodo(todo);
-            console.log(`Todo ${todo.text} has been checked.`);
-        } else if ('rename' == event.label) {
-            console.log(`Todo ${todo.text} has been renamed.`);
         } else if ('delete' == event.label) {
             this.deleteTodo(todo);
-            console.log(`Todo ${todo.text} has been deleted.`);
-        } else {
-            console.error('Unkown event emitted!');
         }
     }
 
