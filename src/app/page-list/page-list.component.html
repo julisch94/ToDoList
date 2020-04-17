@@ -8,7 +8,7 @@
         <app-template-todo (ping)="update($event)" [todo]="todo" *ngFor="let todo of todos"></app-template-todo>
     </div>
 
-    <app-template-todo-form (ping)="update($event)" *ngIf="showOpen"></app-template-todo-form>
+    <app-template-todo-form (ping)="create($event)" *ngIf="showOpen"></app-template-todo-form>
 
     <h4 (click)="showDone = !showDone">
         Done <span>( {{ this.todosDone.length }} )</span>

@@ -9,7 +9,7 @@ import { EventPing } from 'src/app/_interface/eventping';
 })
 export class TemplateTodoFormComponent implements OnInit {
     public todo: Todo;
-    @Output() ping: EventEmitter<EventPing> = new EventEmitter();
+    @Output() ping: EventEmitter<Todo> = new EventEmitter();
 
     constructor() {
         this.reinitializeTodo();
@@ -18,10 +18,7 @@ export class TemplateTodoFormComponent implements OnInit {
     ngOnInit() {}
 
     public createTodo(event?: any): void {
-        this.ping.emit({
-            label: 'create',
-            object: this.todo,
-        });
+        this.ping.emit(this.todo);
         this.reinitializeTodo();
     }
 

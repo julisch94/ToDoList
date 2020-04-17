@@ -34,6 +34,11 @@ export class PageListComponent implements OnInit {
 
     ngOnInit() {}
 
+    public create(todo: Todo): void {
+        this.todos.push(todo);
+        console.log(`Todo ${todo.text} has been created.`);
+    }
+
     public update(event: EventPing): void {
         const todo = event.object;
         if ('check' == event.label) {
@@ -44,9 +49,6 @@ export class PageListComponent implements OnInit {
         } else if ('delete' == event.label) {
             this.deleteTodo(todo);
             console.log(`Todo ${todo.text} has been deleted.`);
-        } else if ('create' == event.label) {
-            this.todos.push(todo);
-            console.log(`Todo ${todo.text} has been created.`);
         } else {
             console.error('Unkown event emitted!');
         }
