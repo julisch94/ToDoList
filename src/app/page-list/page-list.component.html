@@ -4,7 +4,7 @@
     <h4 (click)="showOpen = !showOpen">
         Open <span>( {{ todos.length }} )</span>
     </h4>
-    <div *ngIf="showOpen" class="todo-elements">
+    <div *ngIf="showOpen" class="todo-elements" dragula="todos" [(dragulaModel)]="todos">
         <app-template-todo (ping)="update($event)" [todo]="todo" *ngFor="let todo of todos"></app-template-todo>
     </div>
 
