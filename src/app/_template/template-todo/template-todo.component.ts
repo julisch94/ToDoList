@@ -7,7 +7,7 @@ import { Todo } from '../../_interface/todo';
     styleUrls: ['./template-todo.component.scss'],
 })
 export class TemplateTodoComponent implements OnInit {
-    public todo: Todo;
+    private todo: Todo;
 
     constructor() {
         this.todo = {
@@ -20,16 +20,16 @@ export class TemplateTodoComponent implements OnInit {
 
     ngOnInit() {}
 
-    public changeCheck(event?: any): void {
+    private changeCheck(event?: any): void {
         this.todo.done = !this.todo.done;
         console.log(`Todo ${this.todo.text} was changed to ${this.todo.done}`);
     }
 
-    public changeLabel(event?: any): void {
+    private changeText(event?: any): void {
         console.log(`Todo ${this.todo.text} will be sent to server.`);
     }
 
-    public deleteTodo(event?: any): void {
+    private deleteTodo(event?: any): void {
         console.log(`Todo ${this.todo.text} will be deleted.`);
     }
 }
