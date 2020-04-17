@@ -34,13 +34,13 @@ export class PageListComponent implements OnInit {
 
     ngOnInit() {}
 
-    public create(todo: Todo): void {
+    private create(todo: Todo): void {
         todo.position = this.todos.length;
         this.todos.push(todo);
         console.log(`Todo ${todo.text} has been created.`);
     }
 
-    public update(event: EventPing): void {
+    private update(event: EventPing): void {
         const todo = event.object;
         if ('check' == event.label) {
             this.checkTodo(todo);
