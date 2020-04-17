@@ -47,7 +47,7 @@ export class PageListComponent implements OnInit {
         const todo = event.object;
         if ('check' == event.label) {
             this.checkTodo(todo);
-            console.log(`Todo ${todo.text} has been checked.`, 'color: green;');
+            console.log(`Todo ${todo.text} has been checked.`);
         } else if ('rename' == event.label) {
             console.log(`Todo ${todo.text} has been renamed.`);
         } else if ('delete' == event.label) {
