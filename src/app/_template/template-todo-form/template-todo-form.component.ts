@@ -17,11 +17,16 @@ export class TemplateTodoFormComponent implements OnInit {
 
     public createTodo(event?: any): void {
         console.log(`Create todo ${this.todo.text}`);
+        console.log(this.todo);
+        // if result is OK
         this.reinitializeTodo();
     }
 
     private reinitializeTodo(): void {
         this.todo = {
+            id: undefined,
+            position: undefined,
+            text: undefined,
             done: false,
         };
     }
