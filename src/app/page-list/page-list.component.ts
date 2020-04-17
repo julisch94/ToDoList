@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../_interface/todo';
 import { EventPing } from '../_interface/eventping';
+import { DataService } from '../_service/data.service';
+import { PartialObserver } from 'rxjs';
 
 @Component({
     selector: 'app-page-list',
@@ -14,25 +16,26 @@ export class PageListComponent implements OnInit {
     private todos: Todo[];
     private todosDone: Todo[];
 
-    constructor() {
-        this.todos = [
-            {
-                id: 0,
-                position: 0,
-                text: 'hello',
-                done: false,
-            },
-            {
-                id: 1,
-                position: 1,
-                text: 'hello world',
-                done: false,
-            },
-        ];
-        this.todosDone = [];
+    constructor(private readonly dataService: DataService) {
+        this.loadData();
     }
 
     ngOnInit() {}
+
+    private loadData(): void {
+        this.todos = [];
+        this.todosDone = [];
+        this.dataService.getTodos().subscribe(
+            (todos: Todo[]) => {
+                this.todos = todos;
+                console.log(todos);
+            },
+            error => {
+                console.error('Failed to get data from server');
+                console.error(error);
+            }
+        );
+    }
 
     private create(todo: Todo): void {
         todo.position = this.todos.length;
