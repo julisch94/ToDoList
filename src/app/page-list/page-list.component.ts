@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./page-list.component.scss'],
 })
 export class PageListComponent implements OnInit {
-    public showOpen = true;
-    public showDone = true;
+    private showOpen = true;
+    private showDone = true;
 
     constructor() {}
 
