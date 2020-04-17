@@ -18,13 +18,13 @@ export class PageListComponent implements OnInit {
         this.todos = [
             {
                 id: 0,
-                position: 1,
+                position: 0,
                 text: 'hello',
                 done: false,
             },
             {
                 id: 1,
-                position: 2,
+                position: 1,
                 text: 'hello world',
                 done: false,
             },
@@ -35,6 +35,7 @@ export class PageListComponent implements OnInit {
     ngOnInit() {}
 
     public create(todo: Todo): void {
+        todo.position = this.todos.length;
         this.todos.push(todo);
         console.log(`Todo ${todo.text} has been created.`);
     }
