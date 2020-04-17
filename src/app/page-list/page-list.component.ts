@@ -35,26 +35,38 @@ export class PageListComponent implements OnInit {
     ngOnInit() {}
 
     public update(event: EventPing): void {
+        const todo = event.object;
         if ('check' == event.label) {
-            const todo = event.object;
-            if (todo.done) {
-                this.todos.splice(this.todos.indexOf(todo), 1);
-                this.todosDone.push(todo);
-            } else {
-                this.todosDone.splice(this.todosDone.indexOf(todo), 1);
-                this.todos.push(todo);
-            }
-            console.log(`Todo ${event.object.text} has been checked.`, 'color: green;');
+            this.checkTodo(todo);
+            console.log(`Todo ${todo.text} has been checked.`, 'color: green;');
         } else if ('rename' == event.label) {
-            console.log(`Todo ${event.object.text} has been renamed.`);
+            console.log(`Todo ${todo.text} has been renamed.`);
         } else if ('delete' == event.label) {
-            const todo = event.object;
-            if (todo.done) {
-                this.todosDone.splice(this.todosDone.indexOf(todo), 1);
-            } else {
-                this.todos.splice(this.todos.indexOf(todo), 1);
-            }
-            console.log(`Todo ${event.object.text} has been deleted.`);
+            this.deleteTodo(todo);
+            console.log(`Todo ${todo.text} has been deleted.`);
+        } else if ('create' == event.label) {
+            this.todos.push(todo);
+            console.log(`Todo ${todo.text} has been created.`);
+        } else {
+            console.error('Unkown event emitted!');
+        }
+    }
+
+    private checkTodo(todo: Todo): void {
+        if (todo.done) {
+            this.todos.splice(this.todos.indexOf(todo), 1);
+            this.todosDone.push(todo);
+        } else {
+            this.todosDone.splice(this.todosDone.indexOf(todo), 1);
+            this.todos.push(todo);
+        }
+    }
+
+    private deleteTodo(todo: Todo): void {
+        if (todo.done) {
+            this.todosDone.splice(this.todosDone.indexOf(todo), 1);
+        } else {
+            this.todos.splice(this.todos.indexOf(todo), 1);
         }
     }
 }
