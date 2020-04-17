@@ -1,7 +1,9 @@
 <app-template-header></app-template-header>
 
 <div class="list-view">
-    <h4 (click)="showOpen = !showOpen">Open <span>( 2 )</span></h4>
+    <h4 (click)="showOpen = !showOpen">
+        Open <span>( {{ todos.length }} )</span>
+    </h4>
     <div *ngIf="showOpen" class="todo-elements">
         <app-template-todo (ping)="update($event)" [todo]="todo" *ngFor="let todo of todos"></app-template-todo>
     </div>
