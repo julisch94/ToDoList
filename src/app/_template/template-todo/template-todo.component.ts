@@ -24,10 +24,16 @@ export class TemplateTodoComponent implements OnInit {
     }
 
     private changeText(event?: any): void {
-        console.log(`Todo ${this.todo.text} will be sent to server.`);
+        this.ping.emit({
+            label: 'rename',
+            object: this.todo,
+        });
     }
 
     private deleteTodo(event?: any): void {
-        console.log(`Todo ${this.todo.text} will be deleted.`);
+        this.ping.emit({
+            label: 'delete',
+            object: this.todo,
+        });
     }
 }

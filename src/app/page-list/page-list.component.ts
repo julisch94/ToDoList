@@ -36,7 +36,6 @@ export class PageListComponent implements OnInit {
 
     public update(event: EventPing): void {
         if ('check' == event.label) {
-            console.log('Todo was checked', 'color: green;');
             const todo = event.object;
             if (todo.done) {
                 this.todos.splice(this.todos.indexOf(todo), 1);
@@ -45,6 +44,17 @@ export class PageListComponent implements OnInit {
                 this.todosDone.splice(this.todosDone.indexOf(todo), 1);
                 this.todos.push(todo);
             }
+            console.log(`Todo ${event.object.text} has been checked.`, 'color: green;');
+        } else if ('rename' == event.label) {
+            console.log(`Todo ${event.object.text} has been renamed.`);
+        } else if ('delete' == event.label) {
+            const todo = event.object;
+            if (todo.done) {
+                this.todosDone.splice(this.todosDone.indexOf(todo), 1);
+            } else {
+                this.todos.splice(this.todos.indexOf(todo), 1);
+            }
+            console.log(`Todo ${event.object.text} has been deleted.`);
         }
     }
 }
